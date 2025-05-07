@@ -3,6 +3,20 @@ import createProject from "../models/projects";
 
 const STORAGE_KEY = 'projects';
 
+// Adding a single project to storage
+export function addProjectToStorage(newProject) {
+    const existingProjects = loadProjects(); 
+    existingProjects.push(newProject);       
+    saveProjects(existingProjects);          
+}
+
+// Deleting a single project from storage
+export function deleteProject(projectName) {
+    const projects = loadProjects(); 
+    const updated = projects.filter(project => project.name !== projectName); // Remove matching
+    saveProjects(updated); 
+}
+
 // Saving projects to storage.
 export function saveProjects(projects) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(projects));

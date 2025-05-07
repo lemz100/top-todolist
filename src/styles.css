@@ -1,0 +1,213 @@
+/** Constant styles */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+:root {
+    font-size: 16px;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url(./img/simplegrey.jpg);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-box-page {
+    width: 90%;
+    height: 90%;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+    padding: 0;
+}
+
+.page-header {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-header * {
+    padding: 0.6rem;
+    margin: 0;
+    font-family: 'Public Sans';
+    font-weight: 700;
+}
+
+/** Dynamic Styling */
+/** Product Management Page Styling */
+
+.content-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding: 1rem;
+    gap: 10px;
+    height: 100%;
+    align-items: end;
+}
+
+.navbar {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.navbar button {
+    height: 20%;
+    border: none;
+    border-radius: 0.5rem;
+}
+.project-wrapper {
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.project-btn {
+    background-color: #b6b6b69f;
+    border-radius: 2rem;
+    border: none;
+}
+
+#addProjBtn {
+    background-color: #28990b9d;
+}
+#deleteProjBtn {
+    background-color: #b510109d;
+}
+
+#add-proj-dialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    min-width: 30%;
+    height: 30%;
+}
+
+#add-proj-dialog #close-dialog {
+    color: red;
+    background: none;
+    border: none;
+    align-self: flex-end;
+}
+#add-proj-dialog form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+#add-proj-dialog h2 {
+    justify-self: flex-start;
+    align-self: center;
+    padding: 0;
+    margin: 0;
+}
+#add-proj-dialog .formInputs {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formInputs label input {
+    margin-left: 1rem;
+}
+
+/** Project Page Styling */
+
+.tasks-wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100%;
+    padding: 8px;
+}
+
+.task-card {
+    flex: 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    min-height: 100px;
+    width: 100%; 
+    margin: 2px 0;
+    background-color: rgba(106, 0, 0, 0.804);
+    border-radius: 0.5rem;
+    padding: 6px;
+}
+
+.task-card * {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+}
+
+.button-left-content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    overflow-wrap: break-word;
+    align-items: center;
+}
+
+.button-center-content {
+    display: flex;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button-right-content {
+    display: flex;
+    justify-content: flex-end;
+}
+#task-infobtn {
+    align-self: center;
+    height: 70%;
+    width: 70%;
+    padding: 4px;
+    border-radius: 1rem;
+    background-color: rgb(162, 162, 162);
+    border: none;
+}
+
+.options-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+
+.options-bar button {
+    width: 25%;
+    height: 2rem;
+    background-color: grey;
+}
+
+#addTaskBtn {
+    background-color: green;
+}
+
+#deleteTaskBtn {
+    background-color: rgb(163, 0, 0);
+}
