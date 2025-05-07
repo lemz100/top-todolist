@@ -8,6 +8,7 @@
     "webpack-dev-server": "^5.2.1"
   },
   "dependencies": {
+    "date-fns": "^4.1.0",
     "html-loader": "^5.1.0"
   }
 }
