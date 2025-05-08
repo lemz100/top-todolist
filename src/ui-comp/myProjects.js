@@ -2,7 +2,7 @@ import { addProjectToStorage, saveProjects, loadProjects, clearStorage, deletePr
 import createProject from '../models/projects.js';
 import ProjectPage from './projectPage.js';
 
-function MyProjects () {
+function ProjectsManager () {
     const container = document.querySelector('.main-box-page');
     if(container.innerHTML!==""){
         container.innerHTML = "";
@@ -66,7 +66,9 @@ function MyProjects () {
             addProjectToStorage(newProject);
             alert("Project Added!");
             addProjDialog.close();
-            MyProjects();
+            projectWrapper.innerHTML = "";
+            const updatedProjects = loadProjects();
+            updateProjectsPanel(updatedProjects, projectWrapper);
         });
         closeDialog.addEventListener("click", () => {
             addProjDialog.close();
@@ -80,7 +82,6 @@ function MyProjects () {
         addProjDialog.show();
     })
     deleteProjectButton.addEventListener("click", () => {
-        console.log("Delete button clicked"); 
         const deleteProjectName = prompt("Enter the name of the project you want to delete: ");
         if(!deleteProjectName) return;
 
@@ -114,11 +115,13 @@ function MyProjects () {
         projects = loadProjects();
     }
 
+    // Render project panel
     updateProjectsPanel(projects, projectWrapper);
     contentWrapper.append(projectWrapper);
     container.append(contentWrapper);  
 }
 
+// Update projects
 function updateProjectsPanel (projects, projectWrapper){
     projects.map((project) => {
     const projectBtn = document.createElement("button");
@@ -148,4 +151,4 @@ function updateProjectsPanel (projects, projectWrapper){
 })
 }
 
-export default MyProjects;
+export default ProjectsManager;
