@@ -278,3 +278,53 @@ button:active {
     transform: translateY(-50%);
     pointer-events: none;
 }
+
+#task-info-dialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    min-width: 40%;
+    height: 50%;
+    min-height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+#task-info-dialog .dialog-header {
+    display: flex;
+    justify-content: center;
+}
+
+#task-info-dialog #dialog-form {
+    height: 100%;
+}
+
+#dialog-form .task-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    gap: 1rem;
+}
+
+.required-info, .additional-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#dialog-form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#dialog-form button[type="submit"]{
+    align-self: center;
+    justify-self: flex-end;
+}
+
+.required-info #status-rb {
+    align-self: flex-start;
+}
+
+

@@ -4,4 +4,3 @@ import { saveProjects, loadProjects, clearStorage, deleteProject } from './data/
 import ProjectsManager from './ui-comp/myProjects.js';
 import './styles.css';
 
-ProjectsManager();
