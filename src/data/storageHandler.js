@@ -35,8 +35,10 @@ export function clearStorage() {
 }
 
 export function reAttachMethodsToTask(taskData) {
-    const task = createTask(taskData.title, taskData.description, taskData.dueDate, taskData.priority);
+    const task = createTask(taskData.title, taskData.description, taskData.dueDate, taskData.priority, taskData.projectId);
     task.status = taskData.status;
+    task.notes = taskData.notes;
+    task.id = taskData.id;
     task.checkList = taskData.checkList || [];
 
     // Return re-attached object
@@ -45,6 +47,7 @@ export function reAttachMethodsToTask(taskData) {
 
 export function reAttachMethodsToProject(projectData) {
     const project = createProject(projectData.name);
+    project.id = projectData.id;
     project.taskList = projectData.taskList.map(reAttachMethodsToTask);
     return project;
 }

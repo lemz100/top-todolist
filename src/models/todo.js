@@ -2,7 +2,7 @@ import { format, parse } from 'date-fns';
 
 // To-do task functionality.
 
-function createTask (title, description, inputDate, priority) {
+function createTask (title, description, inputDate, priority, projectId) {
     const parsedDate = parse(inputDate, 'dd-MM-yyyy', new Date()); // input must match format
     const formattedDate = format(parsedDate, 'dd-MM-yyyy'); // ensures consistency
     
@@ -14,19 +14,27 @@ function createTask (title, description, inputDate, priority) {
         status: 'Not Started',
         checkList: [],
         notes: '',
+        id: crypto.randomUUID(),
+        projectId,
 
         // Update status variable
-        markDone() {
-            this.status = 'Done';
+        markCompleted() {
+            this.status = 'Completed';
+        },
+        markStarted() {
+            this.status = 'Started';
+        },
+        markNotStarted() {
+            this.status = "Not Started";
         },
         // Add item to checklist
         addChecklistTask(item) {
             this.checkList.push({task: item, done: false});
         },
-        // Delete item from checklist
-        deleteCheckListTask(index) {
-            if(index > -1){
-                this.checkList.splice(index, 1);
+        markChecklistTaskDone(item) {
+            const taskItem = this.checkList.find(task => task.task === item);
+            if (taskItem) {
+                taskItem.done = true;
             }
         },
         // Update task notes

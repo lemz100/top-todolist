@@ -4,8 +4,10 @@ function createProject(name = '') {
     return {
         name,
         taskList: [],
+        id: crypto.randomUUID(),
 
     addTaskToProject(task) {
+        task.projectId = this.id;
         this.taskList.push(task);
     },
     deleteTaskFromProject(index) {

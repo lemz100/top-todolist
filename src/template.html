@@ -7,66 +7,99 @@
 </head>
 <body>
     <div class="main-box-page">
-        <dialog id="task-info-dialog" open>
-            <div class="dialog-header">
-                <h1>Task Info</h1>
-            </div>
-                <form id="dialog-form" method="dialog">
-                    <div class="task-details">
-                        <div class="required-info">
-                            <label class="form-label">
-                                Title:
-                                <input type="text" name="task-title">
-                            </label>
-                            <label class="form-label">
-                                Description: 
-                                <textarea name="task-desc">Task Description</textarea>
-                            </label>
-                            <label class="form-label">
-                                Due Date:
-                                <input type="date" name="task-duedate">
-                            </label>
-                            <label class="form-label">
-                                Priority: 
-                                <select name="task-priority" id="task-priority-dd">
-                                    <option value="high">High</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="low">Low</option>
-                                </select>
-                            </label>
-                            <fieldset class="form-label">
-                                    <legend>Status</legend>
-                                    <label for="status-1">
-                                        <input type="radio" name="status" id="status-1">Not Started
-                                    </label>
-                                    <label for="status-2">
-                                        <input type="radio" name="status" id="status-2">Started
-                                    </label>
-                                    <label for="status-3">
-                                        <input type="radio" name="status" id="status-3">Completed
-                                    </label>
-                            </fieldset>
-                        </div>
-                        <div class="additional-info">
-                        <label for="checklist-input">
-                            Checklist - Optional
-                            <button title="Add a checklist for e.g. shopping lists.">i</button>
-                        </label>
-                        <input type="text" id="checklist-input">
-                        <button type="button" id="addChecklistItem">Add</button>  
-                        <ul id="checklistItems">
-                            <li>Cheese</li>
-                            <li>Bread</li>
-                            <li>Eggs</li>
-                            <li>Milk</li>
-                        </ul>
-                        <label>Additional Notes: </label>
-                        <input type="text" name="task-notes">
-                        </div>
-                    </div>
-                    <button type="submit">Edit Task</button>
-                </form>
-        </dialog>
     </div>
+    <dialog id="task-info-dialog">
+        <div class="dialog-header">
+            <h1>Task Info</h1>
+        </div>
+        <form id="dialog-form" method="dialog">
+            <div class="task-details">
+                <fieldset id="main-info">
+                    <legend>Main Information</legend>
+                    <label for="task-title">
+                        Title:
+                        <input type="text" name="task-title" id="task-title">
+                    </label>
+                    <label for="task-duedate">
+                        Due Date:
+                        <input type="date" name="task-duedate" id="task-duedate">
+                    </label>
+                    <label for="task-priority">
+                        Priority: 
+                        <select name="task-priority" id="task-priority-dd">
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </label>
+                </fieldset>
+                <fieldset id="second-info">
+                    <legend>Description & Checklist</legend>
+                    <div class="task-desc-container">
+                        <label for="task-desc">Description</label>
+                        <textarea name="task-desc" id="taskdesc-area" placeholder="Text Description..." required></textarea>
+                    </div>
+                    <div class="task-checklist-container">
+                        <label for="checklist-input">
+                            <span id="checklist-label-top">
+                                Checklist - Optional
+                                <button title="Add a checklist for e.g. shopping lists.">i</button>
+                            </span>
+                            <span id="checklist-input-box">
+                                <input type="text" id="checklist-input" placeholder="e.g. eggs... bread...">
+                                <span id="buttons">
+                                    <button type="button" title="Delete Checklist Item - Enter Item Name to Delete" id="deleteChecklistItem">-</button>
+                                    <button type="button" title="Add Checklist Item" id="addChecklistItem">+</button>
+                                </span>
+                            </span>
+                            <ul id="checklistItems">
+                            </ul> 
+                        </label>
+                    </div>
+                </fieldset>
+                <fieldset id="third-info">
+                    <legend>Status & Notes</legend>
+                    <div class="radiobuttons">
+                        <label for="status-1" default>
+                            <input type="radio" name="status" id="status-1">Not Started
+                        </label>
+                        <label for="status-2">
+                            <input type="radio" name="status" id="status-2">Started
+                        </label>
+                        <label for="status-3">
+                            <input type="radio" name="status" id="status-3">Completed
+                        </label>
+                    </div>
+                    <label>
+                        Additional Notes: 
+                        <input type="text" name="task-notes" id="task-notes">
+                    </label>
+                </fieldset>
+            </div>
+            <div class="form-buttons">
+                <button type="submit">Edit Task</button>
+                <button type="button" id="close-dialog">Close</button>
+            </div>
+        </form>
+    </dialog>
+    <dialog id="add-task-dialog">
+        <h3>Enter New Task Details Below:</h3>
+        <button id="close-dialog">X</button>
+        <form method="dialog">
+            <label for="task-name">Task Name: </label>
+            <input type="text" name="task-name" id="task-name" required>
+            <label for="task-desc">Task Description: </label>
+            <textarea name="task-desc" placeholder="Enter your description here..." id="task-desc" required></textarea>
+            <label for="input-date"></label>
+            <input type="date" name="input-date" id="input-date" required>
+            <label for="task-priority">Task Priority: </label>
+            <select name="task-priority">
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+            <button type="submit">Submit New Task</button>
+        </form>
+    </dialog>
 </body>
 </html>
